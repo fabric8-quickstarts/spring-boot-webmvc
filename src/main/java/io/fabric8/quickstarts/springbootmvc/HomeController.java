@@ -15,16 +15,18 @@
  */
 package io.fabric8.quickstarts.springbootmvc;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
-    private int counter;
+    @Value("${welcome}")
+    private String welcome;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String ipaddress() throws Exception {
-        return "It works!";
+        return "Reply: " + welcome;
     }
 }

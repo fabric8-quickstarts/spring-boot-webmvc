@@ -10,14 +10,13 @@ spec:
             - key: application.properties
               path: application.properties
       containers:
-        - 
-          resources:
+        - resources:
             requests:
               cpu: "0.1"
               memory: 64Mi
             limits:
               cpu: "0.2"
               memory: 100Mi
-        - volumeMounts:
+          volumeMounts:
             - name: config
               mountPath: /app/config

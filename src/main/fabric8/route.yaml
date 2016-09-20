@@ -1,0 +1,11 @@
+#
+# Expose the service using a Route on openshift so that
+# external users can access it.
+#
+kind: "Route"
+metadata:
+  name: spring-boot-webmvc
+spec:
+  to:
+    kind: Service
+    name: spring-boot-webmvc

@@ -53,7 +53,7 @@ have a [Vagrant setup](http://fabric8.io/guide/getStarted/vagrant.html) you can 
 `http://spring-boot-webmvc-default.vagrant.f8`.
 
 Notice: As it depends on your OpenShift setup, the hostname (route) might vary. Verify with `oc get routes` which
-hostname is valid for you.
+hostname is valid for you.  Add the '-Dfabric8.deploy.createExternalUrls=true' option to your maven commands if you want it to deploy a Route configuration for the service.
 
 The URL `http://spring-boot-webmvc-default.vagrant.f8/ip` can be used to obtain the IP address to show service load-balancing
 when running with multiple pods.

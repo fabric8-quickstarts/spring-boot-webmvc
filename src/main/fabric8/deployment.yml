@@ -15,4 +15,4 @@ spec:
       containers:
         - volumeMounts:
             - name: config
-              mountPath: /app/config
+              mountPath: /deployments/config

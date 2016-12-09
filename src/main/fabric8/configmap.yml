@@ -2,6 +2,6 @@ metadata:
   name: ${project.artifactId}
 data:
   application.properties: |
-    # spring application proeprties file
+    # spring application properties file
     welcome = Hello from Kubernetes ConfigMap!!!
     dummy = some value

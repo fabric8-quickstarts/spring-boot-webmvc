@@ -31,15 +31,15 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- dependency versions -->
-    <fabric8.version>2.2.183</fabric8.version>
-    <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
+    <fabric8.version>2.2.190</fabric8.version>
+    <spring-boot.version>1.4.3.RELEASE</spring-boot.version>
 
     <!-- maven plugin versions -->
-    <fabric8.maven.plugin.version>3.2.8</fabric8.maven.plugin.version>
-    <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
-    <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+    <fabric8.maven.plugin.version>3.2.12</fabric8.maven.plugin.version>
+    <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
+    <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     <maven-shade-plugin.version>2.3</maven-shade-plugin.version>
-    <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
   </properties>
 
   <dependencyManagement>

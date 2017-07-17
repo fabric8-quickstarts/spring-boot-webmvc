@@ -16,46 +16,27 @@
 package io.fabric8.quickstarts.springbootmvc;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.EmbeddedWebApplicationContext;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.TestRestTemplate;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {IpRestApiTest.class, App.class})
-@WebAppConfiguration
-@IntegrationTest("server.port:0")
-@EnableAutoConfiguration
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {IpRestApiTest.class, App.class}, webEnvironment = WebEnvironment.RANDOM_PORT)
 public class IpRestApiTest extends Assert {
 
-    private RestTemplate rest = new TestRestTemplate();
-
     @Autowired
-    EmbeddedWebApplicationContext tomcat;
-
-    int port;
-    String baseUri;
-
-    @Before
-    public void before() {
-        port = tomcat.getEmbeddedServletContainer().getPort();
-        baseUri = "http://localhost:" + port;
-    }
+    private TestRestTemplate rest;
 
     @Test
     public void shouldExposeIpApi() throws InterruptedException {
-        String ip = rest.getForObject(baseUri + "/ip", String.class);
+        String ip = rest.getForObject("/ip", String.class);
         assertNotNull(ip);
 
-        String ip2 = rest.getForObject(baseUri + "/ip", String.class);
+        String ip2 = rest.getForObject("/ip", String.class);
         assertNotNull(ip2);
 
         // should not be same as there is a counter in the response
